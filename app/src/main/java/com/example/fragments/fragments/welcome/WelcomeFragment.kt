@@ -10,11 +10,14 @@ import androidx.fragment.app.Fragment
 import com.example.fragments.R
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.fragments.data.network.CharacterService
+import com.example.fragments.data.network.RetrofitClient
+import com.example.fragments.data.repository.CharactersRepository
+import com.example.fragments.domain.GetCharactersUseCase
 import com.example.fragments.fragments.welcome.welcome_view_model.WelcomeViewModel
 
 class WelcomeFragment:Fragment() {
-    var buttonFragment:Button?=null
-    private val args:WelcomeFragmentArgs by navArgs()
+
     private var welcomeViewModel:WelcomeViewModel?=null
 
     override fun onCreateView(
@@ -28,24 +31,15 @@ class WelcomeFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        buttonFragment=view.findViewById(R.id.buttonFragment)
-        buttonFragment?.setOnClickListener {
+      initWelcomeViewModel()
 
-            findNavController().navigate(WelcomeFragmentDirections.actionWelcomeToDetail(1))
+    }
+    private fun initWelcomeViewModel() {
+        val characterService=CharacterService(RetrofitClient.rickAndMortyApiClient)
+        val charactersRepository=CharactersRepository(characterService)
+        val charactersUseCase=GetCharactersUseCase(charactersRepository)
 
-        }
-        val id=args.caneloId
-        Log.d("CaneloContent",id.toString())
-
-        welcomeViewModel=WelcomeViewModel()
-        welcomeViewModel?.hi()
-
-        welcomeViewModel?.sumResult?.observe(viewLifecycleOwner) {
-            Log.d("Suma",it.toString())
-
-            }
-        welcomeViewModel?.sum(4,2)
-
+        welcomeViewModel=WelcomeViewModel(charactersUseCase)
 
     }
 }

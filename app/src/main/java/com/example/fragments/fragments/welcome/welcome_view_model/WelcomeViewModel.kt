@@ -3,8 +3,9 @@ package com.example.fragments.fragments.welcome.welcome_view_model
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.fragments.domain.GetCharactersUseCase
 
-class WelcomeViewModel:ViewModel() {
+class WelcomeViewModel(private val getCharactersUseCase: GetCharactersUseCase):ViewModel() {
     val sumResult = MutableLiveData<Int>()
     fun hi(){
         Log.d("WelcomeVieModel","Primer ViewModel")
