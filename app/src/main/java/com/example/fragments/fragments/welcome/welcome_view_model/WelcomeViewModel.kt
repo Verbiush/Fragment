@@ -3,15 +3,20 @@ package com.example.fragments.fragments.welcome.welcome_view_model
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.fragments.data.model.CharacterModel
 import com.example.fragments.domain.GetCharactersUseCase
+import kotlinx.coroutines.launch
 
 class WelcomeViewModel(private val getCharactersUseCase: GetCharactersUseCase):ViewModel() {
-    val sumResult = MutableLiveData<Int>()
-    fun hi(){
-        Log.d("WelcomeVieModel","Primer ViewModel")
+    val retunrListCharacterModel = MutableLiveData<List<CharacterModel>>()
+
+    fun getAllCharacters(){
+        viewModelScope.launch {
+           val characterList= getCharactersUseCase.getAllCharacters()
+            retunrListCharacterModel.postValue(characterList)
+        }
+
     }
-    fun sum(numberUno:Int,numberDos: Int){
-        var suma= numberUno+numberDos
-        sumResult.postValue(suma)
-    }
+
 }

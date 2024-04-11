@@ -16,32 +16,40 @@ import com.example.fragments.data.repository.CharactersRepository
 import com.example.fragments.domain.GetCharactersUseCase
 import com.example.fragments.fragments.welcome.welcome_view_model.WelcomeViewModel
 
-class WelcomeFragment:Fragment() {
+class WelcomeFragment : Fragment() {
 
-    private var welcomeViewModel:WelcomeViewModel?=null
+    private var welcomeViewModel: WelcomeViewModel? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-         super.onCreateView(inflater, container, savedInstanceState)
+        super.onCreateView(inflater, container, savedInstanceState)
         return inflater.inflate(R.layout.fragment_welcome, container, false);
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-      initWelcomeViewModel()
+        initWelcomeViewModel()
+        welcomeViewModel?.retunrListCharacterModel?.observe(viewLifecycleOwner) { list ->
+            Log.d("Lista CharacterModel", list.toString())
+
+        }
+
+        welcomeViewModel?.getAllCharacters()
+
 
     }
+
     private fun initWelcomeViewModel() {
-        val characterService=CharacterService(RetrofitClient.rickAndMortyApiClient)
-        val charactersRepository=CharactersRepository(characterService)
-        val charactersUseCase=GetCharactersUseCase(charactersRepository)
+        val characterService = CharacterService(RetrofitClient.rickAndMortyApiClient)
+        val charactersRepository = CharactersRepository(characterService)
+        val charactersUseCase = GetCharactersUseCase(charactersRepository)
 
-        welcomeViewModel=WelcomeViewModel(charactersUseCase)
-
+        welcomeViewModel = WelcomeViewModel(charactersUseCase)
     }
+
 }
 
 
