@@ -1,4 +1,4 @@
-package com.example.fragments.fragments.content
+package com.example.fragments.fragments.fragments_character.content
 
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.fragments.R
-import com.example.fragments.fragments.content.content_view_model.ContentViewModel
+import com.example.fragments.fragments.fragments_character.content.content_view_model.ContentViewModel
 
 
 class ContentFragment: Fragment() {

@@ -2,15 +2,15 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/welcomeFragment"
+    app:startDestination="@id/locationFragment"
     android:id="@+id/nav_main">
     <fragment
-        android:id="@+id/welcomeFragment"
-        android:name="com.example.fragments.fragments.welcome.WelcomeFragment"
-        tools:layout="@layout/fragment_welcome">
+        android:id="@+id/locationFragment"
+        android:name="com.example.fragments.fragments.fragments_location.LocationFragment"
+        tools:layout="@layout/fragment_location">
         <action
-            android:id="@+id/action_welcome_to_detail"
-            app:destination="@id/detailFragment"/>
+            android:id="@+id/action_location_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"/>
 
         <argument
             android:name="caneloId"
@@ -20,9 +20,25 @@
 
     </fragment>
 
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.fragments.fragments.fragments_character.welcome.WelcomeFragment"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcome_to_detail"
+            app:destination="@id/detailFragment"/>
+
+        <argument
+            android:name="caneloId"
+            app:argType="integer"
+            app:nullable="false" />
+
+    </fragment>
+
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.fragments.fragments.detail.DetailFragment"
+        android:name="com.example.fragments.fragments.fragments_character.detail.DetailFragment"
         tools:layout="@layout/fragment_detail">
 
         <action
@@ -37,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/contentFragment"
-        android:name="com.example.fragments.fragments.content.ContentFragment"
+        android:name="com.example.fragments.fragments.fragments_character.content.ContentFragment"
         tools:layout="@layout/fragment_content">
 
         <action
@@ -50,6 +66,8 @@
             app:nullable="false" />
 
     </fragment>
+
+
 
 
 </navigation>

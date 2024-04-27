@@ -1,4 +1,4 @@
-package com.example.fragments.data.model
+package com.example.fragments.data.model.model_character
 
 data class CharacterModel(
     val id:Int,
@@ -7,12 +7,12 @@ data class CharacterModel(
     val species:String,
     val type:String,
     val gender:String,
-    val origin:OriginModel,
-    val location:LocationModel,
+    val origin: CharacterOriginModel,
+    val location: CharacterLocationModel,
     val image:String,
     val episode:List<String>,
-    val url:String){
+    val url:String)
 
 
-}
+
 

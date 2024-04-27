@@ -1,4 +1,4 @@
-package com.example.fragments.fragments.detail
+package com.example.fragments.fragments.fragments_character.detail
 
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.fragments.R
-import com.example.fragments.fragments.detail.detail_view_model.DetailViewModel
+import com.example.fragments.fragments.fragments_character.detail.detail_view_model.DetailViewModel
 
 
 class DetailFragment:Fragment() {

@@ -1,4 +1,4 @@
-package com.example.fragments.fragments.welcome.welcome_adapter
+package com.example.fragments.fragments.fragments_character.welcome.welcome_adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -6,13 +6,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fragments.R
-import com.example.fragments.data.model.CharacterModel
-import com.example.fragments.fragments.welcome.WelcomeFragment
+import com.example.fragments.data.model.model_character.CharacterModel
+import com.example.fragments.fragments.fragments_character.welcome.WelcomeFragment
 import com.squareup.picasso.Picasso
 
 
-class WelcomeAdapter(private val welcomeCharacterModel:List<CharacterModel> ):
-     RecyclerView.Adapter<WelcomeAdapter.WelcomeViewHolder>() {
+class CharacterAdapter(private val welcomeCharacterModel:List<CharacterModel> ):
+     RecyclerView.Adapter<CharacterAdapter.WelcomeViewHolder>() {
 
     private var onWelcomeClickListener: OnWelcomeClickListener?=null
 

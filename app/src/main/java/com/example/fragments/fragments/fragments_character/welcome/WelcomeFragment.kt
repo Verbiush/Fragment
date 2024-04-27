@@ -1,4 +1,4 @@
-package com.example.fragments.fragments.welcome
+package com.example.fragments.fragments.fragments_character.welcome
 
 import android.os.Bundle
 import android.util.Log
@@ -7,22 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fragments.R
-import com.example.fragments.data.model.CharacterModel
-import com.example.fragments.fragments.welcome.welcome_adapter.OnWelcomeClickListener
+import com.example.fragments.data.model.model_character.CharacterModel
+import com.example.fragments.fragments.fragments_character.welcome.welcome_adapter.OnWelcomeClickListener
 import com.example.fragments.data.network.CharacterService
 import com.example.fragments.data.network.RetrofitClient
 import com.example.fragments.data.repository.CharactersRepository
 import com.example.fragments.domain.GetCharactersUseCase
-import com.example.fragments.fragments.welcome.welcome_adapter.WelcomeAdapter
-import com.example.fragments.fragments.welcome.welcome_view_model.WelcomeViewModel
+import com.example.fragments.fragments.fragments_character.welcome.welcome_adapter.CharacterAdapter
+import com.example.fragments.fragments.fragments_character.welcome.welcome_view_model.WelcomeViewModel
 
-class WelcomeFragment : Fragment(), OnWelcomeClickListener{
+class WelcomeFragment : Fragment(), OnWelcomeClickListener {
     private  var characterListRecycle:RecyclerView?=null
     private var welcomeViewModel: WelcomeViewModel? = null
-    private var characterAdapter:WelcomeAdapter?=null
+    private var characterAdapter: CharacterAdapter?=null
 
 
     override fun onCreateView(
@@ -45,7 +44,7 @@ class WelcomeFragment : Fragment(), OnWelcomeClickListener{
         welcomeViewModel?.returnListCharacterModel?.observe(viewLifecycleOwner) { list ->
 
 
-            characterAdapter =WelcomeAdapter(list)
+            characterAdapter = CharacterAdapter(list)
             characterListRecycle?.adapter = characterAdapter
 
             characterAdapter?.setOnClickListener(this)

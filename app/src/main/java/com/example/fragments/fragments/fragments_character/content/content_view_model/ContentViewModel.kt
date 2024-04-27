@@ -1,4 +1,4 @@
-package com.example.fragments.fragments.content.content_view_model
+package com.example.fragments.fragments.fragments_character.content.content_view_model
 
 
 import androidx.lifecycle.MutableLiveData
