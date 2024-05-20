@@ -13,10 +13,11 @@ class WelcomeViewModel(private val getCharactersUseCase: GetCharactersUseCase):V
 
     fun getAllCharacters(){
         viewModelScope.launch {
-           val characterList= getCharactersUseCase.getAllCharacters(2)
+           val characterList= getCharactersUseCase.getAllCharacters(1)
             returnListCharacterModel.postValue(characterList)
         }
 
     }
+
 
 }

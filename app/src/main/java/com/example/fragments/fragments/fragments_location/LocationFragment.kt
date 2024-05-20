@@ -55,8 +55,6 @@ class LocationFragment:Fragment(), OnLocationClickListener {
         locationViewModel?.getAllLocations()
 
     }
-
-
     private fun initLocationViewModel() {
         val locationService = LocationService(RetrofitClient.rickAndMortyApiClient)
         val locationsRepository = LocationsRepository(locationService)
@@ -64,8 +62,6 @@ class LocationFragment:Fragment(), OnLocationClickListener {
 
         locationViewModel = LocationViewModel(locationsUseCase)
     }
-
-
     override fun onWelcomeClick(position: Int, model: LocationModel) {
 
     }

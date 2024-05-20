@@ -6,4 +6,6 @@ interface OnWelcomeClickListener {
     fun onWelcomeClick(position: Int, model: CharacterModel)
 
 
+
+
 }

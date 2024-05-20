@@ -1,8 +1,5 @@
 package com.example.fragments.data.model.model_location
 
-import android.hardware.biometrics.BiometricManager.Strings
-import com.example.fragments.data.model.model_character.CharacterModel
-
 data class LocationModel (
     val id:Int,
     val name:String,

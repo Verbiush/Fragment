@@ -1,36 +1,33 @@
 package com.example.fragments.data.network
 
-import com.example.fragments.data.model.model_character.CharacterModel
-import com.example.fragments.data.model.model_character.CharactersModel
+import com.example.fragments.data.model.model_episode.EpisodeModel
+import com.example.fragments.data.model.model_episode.EpisodesModel
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class CharacterService(private val api: RickAndMortyApiClient) {
+class EpisodeService (val api:RickAndMortyApiClient ){
 
-    suspend fun getCharacters(page:Int): CharactersModel? {
+    suspend fun getEpisodes(): EpisodesModel? {
         return try {
             withContext(Dispatchers.IO) {
-                val response = api.getAllCharacters(page)
+                val response = api.getAllEpisodes()
                 val responseBody = response.body()
                 responseBody
             }
         } catch (exception: Exception) {
             null
         }
-
     }
-
-    suspend fun getCharacterDetail(id:Int): CharacterModel? {
+    suspend fun getEpisodeDetail(id:Int): EpisodeModel? {
         return try {
             withContext(Dispatchers.IO) {
-                val response = api.getAllCharacterDetail(2)
+                val response = api.getAllEpisodeDetail(id)
                 val responseBody = response.body()
                 responseBody
             }
         } catch (exception: Exception) {
             null
         }
-
     }
-
 }
