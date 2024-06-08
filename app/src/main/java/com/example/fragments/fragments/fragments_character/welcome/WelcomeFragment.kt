@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavArgs
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fragments.R
@@ -23,6 +26,8 @@ class WelcomeFragment : Fragment(), OnWelcomeClickListener {
     private var welcomeViewModel: WelcomeViewModel? = null
     private var characterAdapter: CharacterAdapter?=null
 
+    private val args: WelcomeFragmentArgs by navArgs()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,6 +44,7 @@ class WelcomeFragment : Fragment(), OnWelcomeClickListener {
         characterListRecycle=view.findViewById(R.id.recycleWelcome)
         characterListRecycle?.layoutManager = GridLayoutManager(context,2)
 
+
         initWelcomeViewModel()
 
         welcomeViewModel?.returnListCharacterModel?.observe(viewLifecycleOwner) { list ->
@@ -48,6 +54,7 @@ class WelcomeFragment : Fragment(), OnWelcomeClickListener {
             characterListRecycle?.adapter = characterAdapter
 
             characterAdapter?.setOnClickListener(this)
+
 
             Log.d("character viewModel",list.toString())
         }

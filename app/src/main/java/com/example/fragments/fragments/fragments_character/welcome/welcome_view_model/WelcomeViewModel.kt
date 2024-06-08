@@ -10,10 +10,13 @@ import kotlinx.coroutines.launch
 class WelcomeViewModel(private val getCharactersUseCase: GetCharactersUseCase):ViewModel()
 {
     val returnListCharacterModel = MutableLiveData<List<CharacterModel>>()
+    val returnIdCharacterModel = MutableLiveData<CharacterModel>()
 
     fun getAllCharacters(){
         viewModelScope.launch {
+            val tempCharacterID=returnIdCharacterModel
            val characterList= getCharactersUseCase.getAllCharacters(1)
+            tempCharacterID.value?.id
             returnListCharacterModel.postValue(characterList)
         }
 

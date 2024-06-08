@@ -31,7 +31,7 @@ class ContentFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         buttonFragmentReturn=view.findViewById(R.id.buttonReturn)
         buttonFragmentReturn?.setOnClickListener {
-            findNavController().navigate(ContentFragmentDirections.actionContentToWelcome(3))
+            findNavController().navigate(ContentFragmentDirections.actionContentToWelcomeFragment(2))
         }
         val id=args.caneloId
         Log.d("CaneloContent",id.toString())

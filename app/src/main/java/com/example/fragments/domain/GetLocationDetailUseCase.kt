@@ -9,6 +9,6 @@ class GetLocationDetailUseCase(val locationsRepository: LocationsRepository) {
     suspend fun getAllDetailLocation(id: Int): LocationModel? {
 
 
-        return locationsRepository.getLocationDetailFromApi(2)
+        return locationsRepository.getLocationDetailFromApi(id)
     }
 }

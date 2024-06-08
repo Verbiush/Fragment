@@ -29,7 +29,10 @@ interface RickAndMortyApiClient {
     suspend fun getAllEpisodes(): Response<EpisodesModel>
 
     @GET("episode/{id}")
-    suspend fun getAllEpisodeDetail(@Path("id") id:Int): Response<EpisodeModel>
+    suspend fun getEpisode(@Path("id") id:Int): Response<EpisodeModel>
+
+    @GET("episode/{ids}")
+    suspend fun getEpisodeByCharacter(@Path("ids") ids:String): Response<List<EpisodeModel>>
 
 
 }

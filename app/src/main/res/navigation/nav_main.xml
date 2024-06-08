@@ -5,6 +5,39 @@
     app:startDestination="@id/detailFragment"
     android:id="@+id/nav_main">
     <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.fragments.fragments.fragments_character.detail.DetailFragment"
+        tools:layout="@layout/fragment_detail">
+
+        <action
+            android:id="@+id/action_detail_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"/>
+
+        <argument
+            android:name="id"
+            app:argType="integer"
+            app:nullable="false" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.fragments.fragments.fragments_character.welcome.WelcomeFragment"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcome_to_detailFragment"
+            app:destination="@id/detailFragment"/>
+
+        <argument
+            android:name="id"
+            app:argType="integer"
+            app:nullable="false" />
+
+    </fragment>
+
+
+
+    <fragment
         android:id="@+id/locationFragment"
         android:name="com.example.fragments.fragments.fragments_location.LocationFragment"
         tools:layout="@layout/fragment_location">
@@ -15,49 +48,17 @@
         <argument
             android:name="caneloId"
             app:argType="integer"
-            app:nullable="false"
-            android:defaultValue="-1"/>
-
-    </fragment>
-
-
-    <fragment
-        android:id="@+id/welcomeFragment"
-        android:name="com.example.fragments.fragments.fragments_character.welcome.WelcomeFragment"
-        tools:layout="@layout/fragment_welcome">
-        <action
-            android:id="@+id/action_welcome_to_detail"
-            app:destination="@id/detailFragment"/>
-
-        <argument
-            android:name="caneloId"
-            app:argType="integer"
             app:nullable="false" />
 
     </fragment>
 
-    <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.example.fragments.fragments.fragments_character.detail.DetailFragment"
-        tools:layout="@layout/fragment_detail">
-
-        <action
-            android:id="@+id/action_detail_to_content"
-            app:destination="@id/contentFragment"/>
-
-        <argument
-            android:name="caneloId"
-            app:argType="integer"
-            app:nullable="false" />
-
-    </fragment>
     <fragment
         android:id="@+id/contentFragment"
         android:name="com.example.fragments.fragments.fragments_character.content.ContentFragment"
         tools:layout="@layout/fragment_content">
 
         <action
-            android:id="@+id/action_content_to_welcome"
+            android:id="@+id/action_content_to_welcome_fragment"
             app:destination="@id/welcomeFragment"/>
 
         <argument
@@ -66,8 +67,5 @@
             app:nullable="false" />
 
     </fragment>
-
-
-
 
 </navigation>
